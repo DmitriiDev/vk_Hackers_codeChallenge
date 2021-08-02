@@ -10,7 +10,7 @@ import Foundation
 import SwiftSoup
 
 enum HtmlParser {
-    static func posts(from tableElement: Element, type: PostType) throws -> [Post] {
+static func posts(from tableElement: Element, type: PostType) throws -> [Post] {
         if tableElement.hasClass("fatitem") {
             // single post
             let postElements = try tableElement.select("tr")
@@ -74,8 +74,8 @@ enum HtmlParser {
             upvoted: upvoted
         )
     }
-
     static func postsTableElement(from html: String) throws -> Element {
+
         let document = try SwiftSoup.parse(html)
 
         guard let parentTable = try document

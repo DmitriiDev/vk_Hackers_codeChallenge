@@ -86,6 +86,11 @@
 		4C2F2E36269D789F0041FB12 /* NavigationElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2F2E35269D789F0041FB12 /* NavigationElement.swift */; };
 		4C2F2E3E269EAE840041FB12 /* SortViewEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2F2E3D269EAE840041FB12 /* SortViewEnum.swift */; };
 		4C2F2E41269F065E0041FB12 /* BaseTestClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2F2E40269F065E0041FB12 /* BaseTestClass.swift */; };
+		4C83047626B4228200C3DF6F /* MockWebServer in Resources */ = {isa = PBXBuildFile; fileRef = 4C83047526B4228200C3DF6F /* MockWebServer */; };
+		4C83047726B4419500C3DF6F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2481BD5A247C0FFB0088CA2B /* Models.swift */; };
+		4C83047826B441AA00C3DF6F /* HtmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C10C072486DB0700B93F68 /* HtmlParser.swift */; };
+		4C83047B26B444FA00C3DF6F /* MockWebServerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C83047A26B444FA00C3DF6F /* MockWebServerService.swift */; };
+		4C83047D26B833FC00C3DF6F /* MainCellStructAssert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C83047C26B833FC00C3DF6F /* MainCellStructAssert.swift */; };
 		4CC8991A269D6436004A09C3 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC89912269D6103004A09C3 /* Interactor.swift */; };
 		698FE7B523EE5FE300F5828C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 698FE7B423EE5FE300F5828C /* Colors.xcassets */; };
 		DF68752992A90A126C292CD9 /* Pods_Hackers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0376FCAAF4C3EBA38572A82 /* Pods_Hackers.framework */; };
@@ -216,6 +221,9 @@
 		4C2F2E35269D789F0041FB12 /* NavigationElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationElement.swift; sourceTree = "<group>"; };
 		4C2F2E3D269EAE840041FB12 /* SortViewEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortViewEnum.swift; sourceTree = "<group>"; };
 		4C2F2E40269F065E0041FB12 /* BaseTestClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTestClass.swift; sourceTree = "<group>"; };
+		4C83047526B4228200C3DF6F /* MockWebServer */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MockWebServer; sourceTree = SOURCE_ROOT; };
+		4C83047A26B444FA00C3DF6F /* MockWebServerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockWebServerService.swift; sourceTree = "<group>"; };
+		4C83047C26B833FC00C3DF6F /* MainCellStructAssert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCellStructAssert.swift; sourceTree = "<group>"; };
 		4CC8990E269CC8F1004A09C3 /* TestsVok.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsVok.swift; sourceTree = "<group>"; };
 		4CC89910269CCE60004A09C3 /* TestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModels.swift; sourceTree = "<group>"; };
 		4CC89912269D6103004A09C3 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
@@ -516,6 +524,7 @@
 		24F39F8E18AFB1150055F8DC /* App */ = {
 			isa = PBXGroup;
 			children = (
+				4C83047526B4228200C3DF6F /* MockWebServer */,
 				24CE5FEC19434BDC009D2677 /* AppDelegate.swift */,
 				24ADA7E2206FAF2200C143F4 /* Main.storyboard */,
 				24EF5BF31C393D110012AA8A /* LaunchStoryboard.storyboard */,
@@ -571,6 +580,8 @@
 				4CC89912269D6103004A09C3 /* Interactor.swift */,
 				4C2F2E3D269EAE840041FB12 /* SortViewEnum.swift */,
 				4C2F2E40269F065E0041FB12 /* BaseTestClass.swift */,
+				4C83047A26B444FA00C3DF6F /* MockWebServerService.swift */,
+				4C83047C26B833FC00C3DF6F /* MainCellStructAssert.swift */,
 			);
 			path = FrameworkService;
 			sourceTree = "<group>";
@@ -708,9 +719,9 @@
 						ProvisioningStyle = Manual;
 					};
 					24F39F8418AFB1150055F8DC = {
-						DevelopmentTeam = 2KB59GPA9B;
+						DevelopmentTeam = TN65BY2NJ7;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -768,6 +779,7 @@
 				249B8F8C22A2CA6F002A9EC5 /* TableViewBackgroundView.xib in Resources */,
 				240C5BE018D267C70011177A /* Icons.xcassets in Resources */,
 				698FE7B523EE5FE300F5828C /* Colors.xcassets in Resources */,
+				4C83047626B4228200C3DF6F /* MockWebServer in Resources */,
 				24A13DC32621EFD6002235A8 /* ItemCell.xib in Resources */,
 				24ADA7E3206FAF2200C143F4 /* Main.storyboard in Resources */,
 				24EF5BF41C393D110012AA8A /* LaunchStoryboard.storyboard in Resources */,
@@ -892,6 +904,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Hackers/Pods-Hackers-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BulletinBoard/BLTNBoard.framework",
+				"${BUILT_PRODUCTS_DIR}/GCDWebServer/GCDWebServer.framework",
 				"${BUILT_PRODUCTS_DIR}/HNScraper/HNScraper.framework",
 				"${BUILT_PRODUCTS_DIR}/Loaf/Loaf.framework",
 				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
@@ -905,6 +918,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BLTNBoard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GCDWebServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HNScraper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Loaf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
@@ -927,10 +941,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HackersUITests/Pods-HackersUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 				"${BUILT_PRODUCTS_DIR}/DeviceKit/DeviceKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeviceKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -956,11 +972,15 @@
 			files = (
 				4CC8991A269D6436004A09C3 /* Interactor.swift in Sources */,
 				4C2F2E33269D64F40041FB12 /* TestModels.swift in Sources */,
+				4C83047826B441AA00C3DF6F /* HtmlParser.swift in Sources */,
 				4C2F2E41269F065E0041FB12 /* BaseTestClass.swift in Sources */,
+				4C83047726B4419500C3DF6F /* Models.swift in Sources */,
 				245345EF22466EA8001AF1CE /* HackersUITests.swift in Sources */,
 				4C2F2E32269D64EE0041FB12 /* TableViewElement.swift in Sources */,
 				4C2F2E36269D789F0041FB12 /* NavigationElement.swift in Sources */,
 				4C2F2E34269D67F70041FB12 /* TestsVok.swift in Sources */,
+				4C83047D26B833FC00C3DF6F /* MainCellStructAssert.swift in Sources */,
+				4C83047B26B444FA00C3DF6F /* MockWebServerService.swift in Sources */,
 				245345FB22466F75001AF1CE /* SnapshotHelper.swift in Sources */,
 				4C2F2E3E269EAE840041FB12 /* SortViewEnum.swift in Sources */,
 				4C2F2E31269D64E70041FB12 /* ButtonElement.swift in Sources */,
@@ -1374,10 +1394,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "App/Supporting Files/Hackers.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 102;
-				DEVELOPMENT_TEAM = 2KB59GPA9B;
+				DEVELOPMENT_TEAM = TN65BY2NJ7;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "App/Supporting Files/Hackers2-Prefix.pch";
@@ -1386,7 +1406,7 @@
 				MARKETING_VERSION = 4.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.weiranzhang.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Hackers;
-				PROVISIONING_PROFILE_SPECIFIER = "Hackers Dev Provisioning Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = off;
 				SWIFT_OBJC_BRIDGING_HEADER = "App/Supporting Files/Hackers2-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";

@@ -1,6 +1,9 @@
 PODS:
   - BulletinBoard (5.0.0)
   - DeviceKit (4.3.0)
+  - GCDWebServer (3.5.4):
+    - GCDWebServer/Core (= 3.5.4)
+  - GCDWebServer/Core (3.5.4)
   - HNScraper (0.2.2)
   - Loaf (0.7.0)
   - Nuke (9.5.0)
@@ -16,6 +19,7 @@ PODS:
 DEPENDENCIES:
   - BulletinBoard
   - DeviceKit
+  - GCDWebServer (~> 3.0)
   - HNScraper (from `https://github.com/weiran/HNScraper.git`, branch `master`)
   - Loaf
   - Nuke
@@ -31,6 +35,7 @@ SPEC REPOS:
   trunk:
     - BulletinBoard
     - DeviceKit
+    - GCDWebServer
     - Loaf
     - Nuke
     - PromiseKit
@@ -54,6 +59,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   BulletinBoard: dba77053c2a7b64953f63073f7534165af2edd21
   DeviceKit: 7decde449c308ac7e816e2184ded1c7c596fb885
+  GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
   HNScraper: d96632c361238905f2886f83675e75f2153b4dc4
   Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
   Nuke: 6f400a4ea957e09149ec335a3c6acdcc814d89e4
@@ -65,6 +71,6 @@ SPEC CHECKSUMS:
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
   WhatsNewKit: c87028c4059dccd113495422801914cc53f6aab0
 
-PODFILE CHECKSUM: 52b90088cab90c44358c46cd2a92ab6bc5e52db7
+PODFILE CHECKSUM: 795854911bee86a472bf910c29b13d46c24c7ec6
 
 COCOAPODS: 1.10.1

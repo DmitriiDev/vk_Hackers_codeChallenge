@@ -44,9 +44,11 @@ class Interactor: XCTestCase {
             table.commentCellCollapsedCheck(cellNum: cellNum)
         case .sortBtnVerify:
             navigation.sortButtonVerify(sortName: sortBtnName)
+        case .checkMockPostCell:
+            table.postMockCellCheck()
         }
     }
-    
+
     func taskAction(todo: Test_models.Actions) {
         switch todo {
         case .appToForeground:

@@ -21,7 +21,7 @@ class TableViewElement: XCTestCase {
     let upvoteIconImageView = "upvoteIconImageViewID"
     // SortView ids
     let cvSortLocator = "sortCollectionViewID"
-
+    
     func tapFirstCell() {
         XCTContext.runActivity(named: "Tap on the first cell") {_ in
             let waitResult = waitForElementToAppear(XCUIApplication().cells.firstMatch)
@@ -32,7 +32,6 @@ class TableViewElement: XCTestCase {
             }
         }
     }
-
     func tapByCellNumber(cellNum: Int?) {
         guard let cellNumGuard = cellNum else {
             XCTFail("No cell number passed as parameter")
@@ -48,7 +47,7 @@ class TableViewElement: XCTestCase {
             }
         }
     }
-    
+
     func postCellCheck(cellNum: Int?) {
         guard let gCellNum = cellNum else {
             XCTFail("No cell number passed as parameter")
@@ -59,11 +58,42 @@ class TableViewElement: XCTestCase {
             if waitResult {
                 let imageEl = XCUIApplication().cells.element(boundBy: gCellNum).images[imageLocator].isEnabled
                 let titleEl = XCUIApplication().cells.element(boundBy: gCellNum).staticTexts[titleLocator].isEnabled
-                let metadataEl = XCUIApplication().cells.element(boundBy: gCellNum).staticTexts[metadaLocator].isEnabled
                 XCTAssert(imageEl)
                 XCTAssert(titleEl)
-                XCTAssert(metadataEl)
             }
+        }
+    }
+    func postMockCellCheck() {
+        let mockWebServer = MockWebServerService()
+        var mockData = [MainCellStructAssert]()
+        let expectation = XCTestExpectation(description: "wait mock")
+        _ = mockWebServer.parameters { datas in
+            for (index, data) in datas.enumerated() {
+                let urlString = (data as? Post)?.url
+                let domain = urlString?.host
+                let comments = (data as? Post)?.commentsCount
+                let age = (data as? Post)?.age
+                let by = (data as? Post)?.by
+                let score = (data as? Post)?.score
+                let title = (data as? Post)?.title
+                guard let guardScore = score, let guardComments = comments, let guardDomain = domain else {
+                    return
+                }
+                let metaData = "\(guardScore) \(guardComments) \(guardDomain)"
+                mockData.append(MainCellStructAssert(index: index, title: title, age: age, by: by, metaData: metaData))
+                expectation.fulfill()
+            }
+        }
+        wait(for: [expectation], timeout: 10.0)
+        assertMockCell(metaData: mockData)
+    }
+    func assertMockCell(metaData: [MainCellStructAssert]) {
+        for data in metaData {
+            let elementsTitle = XCUIApplication().staticTexts[data.title!].isEnabled
+            let elementsText = XCUIApplication().staticTexts[data.metaData!].isEnabled
+            XCTAssertTrue(elementsTitle)
+            XCTAssertTrue(elementsText)
+
         }
     }
     func commentCellCheck(cellNum: Int?) {
@@ -74,14 +104,12 @@ class TableViewElement: XCTestCase {
         XCTContext.runActivity(named: "Tap on the first cell") {_ in
             let waitResult = waitForElementToAppear(XCUIApplication().staticTexts[commentText])
             if waitResult {
-            let commentEl = XCUIApplication().cells.element(boundBy: gCellNum).staticTexts[commentText].isEnabled
-            let authorLabelEl = XCUIApplication().cells.element(boundBy: gCellNum).staticTexts[authorLabel].isEnabled
-            let datePostedEl = XCUIApplication().cells.element(boundBy: gCellNum).staticTexts[datePostedLabel].isEnabled
-            //        let upvoteIconImageViewElement = XCUIApplication().cells.element(boundBy: cellNumGuard).images[upvoteIconImageView].isEnabled
-            XCTAssert(commentEl)
-            XCTAssert(authorLabelEl)
-            XCTAssert(datePostedEl)
-            //        XCTAssert(upvoteIconImageViewElement)
+                let commentEl = XCUIApplication().cells.element(boundBy: gCellNum).staticTexts[commentText].isEnabled
+                let authorLabelEl = XCUIApplication().cells.element(boundBy: gCellNum).staticTexts[authorLabel].isEnabled
+                let datePostedEl = XCUIApplication().cells.element(boundBy: gCellNum).staticTexts[datePostedLabel].isEnabled
+                XCTAssert(commentEl)
+                XCTAssert(authorLabelEl)
+                XCTAssert(datePostedEl)
             }
         }
     }
@@ -93,13 +121,13 @@ class TableViewElement: XCTestCase {
         XCTContext.runActivity(named: "Tap on the first cell") {_ in
             let waitResult = waitForElementToAppear(XCUIApplication().staticTexts[commentText])
             if waitResult {
-            let commentEl = XCUIApplication().cells.element(boundBy: gCellNum).staticTexts[commentText].isEnabled
-            let authorLabelEl = XCUIApplication().cells.element(boundBy: gCellNum).staticTexts[authorLabel].isEnabled
-            let datePostedEl = XCUIApplication().cells.element(boundBy: gCellNum).staticTexts[datePostedLabel].isEnabled
-            XCTAssert(commentEl)
-            XCTAssertFalse(commentEl)
-            XCTAssert(authorLabelEl)
-            XCTAssert(datePostedEl)
+                let commentEl = XCUIApplication().cells.element(boundBy: gCellNum).staticTexts[commentText].isEnabled
+                let authorLabelEl = XCUIApplication().cells.element(boundBy: gCellNum).staticTexts[authorLabel].isEnabled
+                let datePostedEl = XCUIApplication().cells.element(boundBy: gCellNum).staticTexts[datePostedLabel].isEnabled
+                XCTAssert(commentEl)
+                XCTAssertFalse(commentEl)
+                XCTAssert(authorLabelEl)
+                XCTAssert(datePostedEl)
             }
         }
     }
@@ -119,5 +147,4 @@ class TableViewElement: XCTestCase {
             }
         }
     }
-
 }

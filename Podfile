@@ -14,10 +14,11 @@ target 'Hackers' do
   pod 'WhatsNewKit'
   pod 'SwiftSoup'
   pod 'Nuke'
-  
+  pod "GCDWebServer", "~> 3.0"
   pod 'SwiftLint'
 end
 
 target 'HackersUITests' do
   pod 'DeviceKit'
+  pod 'SwiftSoup'
 end

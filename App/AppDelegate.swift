@@ -8,6 +8,7 @@
 
 import UIKit
 import SwinjectStoryboard
+import GCDWebServer
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,7 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if ProcessInfo.processInfo.arguments.contains("skipAnimations") {
             UIView.setAnimationsEnabled(false)
         }
-
+        if ProcessInfo.processInfo.arguments.contains("mockWebServer") {
+            launchWebServer()
+        }
+        if ProcessInfo.processInfo.arguments.contains("mockWebServer") {
+            launchWebServer()
+        }
         // setup window and entry point
         window = UIWindow()
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
@@ -80,4 +86,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return parameters
     }
+    
+    private func launchWebServer() {
+        let webServer = GCDWebServer()
+        webServer.addGETHandler(forBasePath: "/responses/", directoryPath: Bundle.main.bundlePath + "/MockWebServer/responses", indexFilename: nil, cacheAge: 0, allowRangeRequests: true)
+        do {
+            try webServer.start(options: [GCDWebServerOption_AutomaticallySuspendInBackground: false, GCDWebServerOption_Port: 9090, "BindToLocalhost": true])
+            print("mock web server has been launched")
+        } catch {
+        }
+    }
+
 }

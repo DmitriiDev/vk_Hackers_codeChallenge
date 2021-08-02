@@ -28,8 +28,9 @@ class ItemCell: UICollectionViewListCell {
     func apply(post: Post) {
         self.post = post
         thumbnailImageView.accessibilityLabel = "thumbnailImageViewID"
-        titleLabel.accessibilityLabel = "titleLabelID"
-        metadataLabel.accessibilityLabel = "metaDataLabelID"
+//        titleLabel.accessibilityLabel = "titleLabelID"
+//        metadataLabel.accessibilityLabel = "metaDataLabelID"
+        metadataLabel.accessibilityTraits = .staticText
         titleLabel.text = post.title
         metadataLabel.attributedText = metadataText(for: post)
 
@@ -97,9 +98,9 @@ extension ItemCell {
         let string = NSMutableAttributedString()
         string.append(NSAttributedString(string: "\(post.score)", attributes: pointsAttributes))
         string.append(pointsIconAttributedString)
-        string.append(NSAttributedString(string: "• \(post.commentsCount) ", attributes: defaultAttributes))
+        string.append(NSAttributedString(string: " \(post.commentsCount)", attributes: defaultAttributes))
         string.append(commentsIconAttributedString)
-        string.append(NSAttributedString(string: " • \(domainLabelText(for: post))", attributes: defaultAttributes))
+        string.append(NSAttributedString(string: " \(domainLabelText(for: post))", attributes: defaultAttributes))
         return string
     }
 

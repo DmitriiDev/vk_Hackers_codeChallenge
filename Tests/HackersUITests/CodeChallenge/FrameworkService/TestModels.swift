@@ -37,6 +37,7 @@ struct Test_models {
         case checkCommentCell
         case checkCommentCollapsedCell
         case sortBtnVerify
+        case checkMockPostCell
     }
 }
 

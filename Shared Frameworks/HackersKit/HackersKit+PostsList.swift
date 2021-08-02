@@ -17,7 +17,7 @@ extension HackersKit {
         }.map { html in
             try HtmlParser.postsTableElement(from: html)
         }.compactMap { tableElement in
-            try HtmlParser.posts(from: tableElement, type: type)
+           return try HtmlParser.posts(from: tableElement, type: type)
         }
     }
 

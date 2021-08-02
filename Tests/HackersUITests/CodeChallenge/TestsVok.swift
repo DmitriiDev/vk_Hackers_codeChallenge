@@ -33,12 +33,21 @@ class TestVok: BaseTestClass {
         interactor.taskNavigation(todo: .tapSortViewCell, sortCell: .ask)
         interactor.taskAssert(todo: .sortBtnVerify, sortBtnName: .ask)
     }
-
     func test_openArticle() {
         interactor.taskAssert(todo: .checkPostCell, 1)
         interactor.taskNavigation(todo: .tapFirstCell)
         interactor.taskNavigation(todo: .tapFirstCell)
         interactor.taskNavigation(todo: .closeWebView)
         interactor.taskAssert(todo: .checkPostCell)
+    }
+    func test_mockTest() {
+        app.terminate()
+        app.launchArguments = [ "disableReviewPrompts",
+                                "skipAnimations",
+                                "disableOnboarding",
+                                "mockWebServer"]
+        app.launch()
+        let mockWebServer = MockWebServerService()
+        interactor.taskAssert(todo: .checkMockPostCell)
     }
 }

@@ -23,7 +23,6 @@ class BaseTestClass: XCTestCase {
         ]
         app.launch()
     }
-
     override func tearDown() {
         super.tearDown()
         deleteMyApp()
